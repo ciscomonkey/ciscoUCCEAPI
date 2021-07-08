@@ -1,0 +1,2 @@
+class ucceAPI(object):
+    pass
