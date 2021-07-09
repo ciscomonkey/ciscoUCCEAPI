@@ -10,7 +10,7 @@ class ucceAPI(object):
         self.ucce_session = requests.Session()
         self.ucce_session.auth = ( username , password )
 
-    def activedirectorydocmain(self):
+    def activedirectorydomain(self):
 
         final_path = self.ccepath + '/activedirectorydomain'
         self.ucce_session.get(final_path)
