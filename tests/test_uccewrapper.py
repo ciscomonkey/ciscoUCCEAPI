@@ -14,3 +14,5 @@ def test_ucce_domain():
 
     assert isinstance(response,dict)
     assert response['1'] is not None, "This should be the first associated domain"
+
+
