@@ -5,9 +5,10 @@ from xml.etree import cElementTree as ElementTree
 
 class AdministratorModel(object):
 
-    def __init__(self,host,username,password):
-        self.ccepath = ('https://%s/unifiedconfig/config'%self.host)
+    def __init__(self,ucce_session,ucce_path):
 
+        self.ucce_session = ucce_session
+        self.ucce_path = ucce_path
 
 
     def __repr__(self):
@@ -39,6 +40,8 @@ class ucceAPI(object):
         self.ucce_session = requests.Session()
         self.ucce_session.auth = ( username , password )
 
+        administrator = AdministratorModel(self.ucce_session, self.ccepath)
+
     def activedirectorydomain(self):
 
         final_path = self.ccepath + '/activedirectorydomain'
@@ -49,6 +52,6 @@ class ucceAPI(object):
         xmldict = XmlDictConfig(root)
         return xmldict
 
-    administrator = AdministratorModel
+
 
 
