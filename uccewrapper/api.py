@@ -1,5 +1,5 @@
 import requests
-from xmlDict import XmlDictConfig
+from .xmlDict import XmlDictConfig
 from xml.etree import cElementTree as ElementTree
 
 
