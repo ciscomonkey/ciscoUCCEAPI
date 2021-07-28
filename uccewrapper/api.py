@@ -13,6 +13,9 @@ class ucceAPI(object):
     def activedirectorydomain(self):
 
         final_path = self.ccepath + '/activedirectorydomain'
-        self.ucce_session.get(final_path)
+        response = self.ucce_session.get(final_path, verify = False)
+        print ('getting data from api')       
+        print (response) 
+        return response 
 
-        return self.ucce_session
+
