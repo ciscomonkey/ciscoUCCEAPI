@@ -3,6 +3,8 @@ from .xmlDict import XmlDictConfig
 from xml.etree import cElementTree as ElementTree
 
 
+
+
 class AdministratorModel(object):
 
     def __init__(self,ucce_session,ucce_path):
@@ -12,6 +14,7 @@ class AdministratorModel(object):
 
 
     def __call__(self):
+
         final_path = self.ccepath + '/administrator/'
         response = self.ucce_session.get(final_path, verify = False)
         print ('getting data from api')
@@ -40,7 +43,7 @@ class ucceAPI(object):
         self.ucce_session = requests.Session()
         self.ucce_session.auth = ( username , password )
 
-        self.administrator1 = AdministratorModel(self.ucce_session, self.ccepath)
+        self.administrator = AdministratorModel(self.ucce_session, self.ccepath)
 
     def activedirectorydomain(self):
 
@@ -52,14 +55,6 @@ class ucceAPI(object):
         xmldict = XmlDictConfig(root)
         return xmldict
 
-    def administrator(self):
-    
-        final_path = self.ccepath + '/administrator'
-        response = self.ucce_session.get(final_path, verify = False)
-        print ('getting data from api')
-        print (response)
-        root = ElementTree.XML(response.text)
-        xmldict = XmlDictConfig(root)
-        return xmldict
+
 
 
