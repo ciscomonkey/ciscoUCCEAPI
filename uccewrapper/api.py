@@ -25,7 +25,7 @@ class AdministratorModel(object):
 
     def get(self,id):
 
-        final_path = self.ccepath + '/administrator/' + id
+        final_path = self.ccepath + '/administrator/' + str(id)
         response = self.ucce_session.get(final_path, verify = False)
         print ('getting data from api')
         print (response)
@@ -52,7 +52,7 @@ class AgentModel(object):
 
     def get(self,id):
 
-        final_path = self.ccepath + '/agent/' + id
+        final_path = self.ccepath + '/agent/' + str(id)
         response = self.ucce_session.get(final_path, verify = False)
         print ('getting data from api')
         print (response)
