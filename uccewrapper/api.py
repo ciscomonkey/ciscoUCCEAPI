@@ -5,6 +5,11 @@ from xml.etree import cElementTree as ElementTree
 
 class AdministratorModel(object):
 
+    def __init__(self,host,username,password):
+        self.ccepath = ('https://%s/unifiedconfig/config'%self.host)
+
+
+
     def __repr__(self):
         final_path = self.ccepath + '/administrator/'
         response = self.ucce_session.get(final_path, verify = False)
