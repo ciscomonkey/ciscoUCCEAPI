@@ -1,4 +1,6 @@
 import requests
+from xmlDict import XmlDictConfig
+from xml.etree import cElementTree as ElementTree
 
 
 class ucceAPI(object):
@@ -15,7 +17,9 @@ class ucceAPI(object):
         final_path = self.ccepath + '/activedirectorydomain'
         response = self.ucce_session.get(final_path, verify = False)
         print ('getting data from api')       
-        print (response) 
-        return response 
+        print (response)
+        root = ElementTree.XML(response.text)
+        xmldict = XmlDictConfig(root)
+        return xmldict
 
 
