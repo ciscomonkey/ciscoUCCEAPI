@@ -102,6 +102,7 @@ class ucceAPI(object):
 
         self.administrator = AdministratorModel(self.ucce_session, self.ccepath)
         self.agent = AgentModel(self.ucce_session, self.ccepath)
+        self.skill_group = SkillGroupModel(self.ucce_session, self.ccepath)
 
     def activedirectorydomain(self):
 
