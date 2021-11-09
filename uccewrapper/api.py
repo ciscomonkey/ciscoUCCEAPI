@@ -78,9 +78,9 @@ class SkillGroupModel:
         xmldict = XmlDictConfig(root)
         return xmldict
 
-    def get(self,id):
+    def list(self):
 
-        final_path = self.ccepath + '/agent/' + str(id)
+        final_path = self.ccepath + '/skillgroup'
         response = self.ucce_session.get(final_path, verify = False)
         print ('getting data from api')
         print (response)
