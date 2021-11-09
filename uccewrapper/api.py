@@ -88,7 +88,43 @@ class SkillGroupModel:
         xmldict = XmlDictConfig(root)
         return xmldict
 
+class PQModel:
 
+    def __init__(self,ucce_session,ucce_path):
+
+        self.ucce_session = ucce_session
+        self.ccepath = ucce_path
+        self.skill_group = 1
+
+    def __call__(self):
+
+        final_path = self.ccepath + '/precisionqueue'
+        response = self.ucce_session.get(final_path, verify = False)
+        print ('getting data from precision queue')
+        print (response)
+        root = ElementTree.XML(response.text)
+        xmldict = XmlDictConfig(root)
+        return xmldict
+
+    def list(self):
+
+        final_path = self.ccepath + '/precisionqueue'
+        response = self.ucce_session.get(final_path, verify = False)
+        print ('getting data from api')
+        print (response)
+        root = ElementTree.XML(response.text)
+        xmldict = XmlDictConfig(root)
+        return xmldict
+
+    def get(self,id):
+
+        final_path = self.ccepath + '/precisionqueue/' + str(id)
+        response = self.ucce_session.get(final_path, verify = False)
+        print ('getting data from api')
+        print (response)
+        root = ElementTree.XML(response.text)
+        xmldict = XmlDictConfig(root)
+        return xmldict
 
 
 class ucceAPI(object):
